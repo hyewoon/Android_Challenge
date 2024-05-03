@@ -1,15 +1,14 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
-    namespace = "com.example.room"
+    namespace = "com.example.a01simplenavigation"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.room"
+        applicationId = "com.example.a01simplenavigation"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -43,21 +42,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-
-     val roomVersion = "2.4.0"
-
-    implementation("androidx.room:room-runtime:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
-
-// To use Kotlin annotation processing tool (kapt)
-    kapt("androidx.room:room-compiler:$roomVersion")
-
-// Coroutine
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
-
-
 }
